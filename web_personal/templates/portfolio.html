@@ -1,6 +1,6 @@
-	
+{% extends 'base.html' %}
 
-	  
+{% block content %} 
 
 	    <!-- Cabecera -->
 	    <header class="masthead" style="background-image: url('img/portfolio-bg.jpg')">
@@ -22,7 +22,7 @@
 	      <!-- Proyecto -->
 	      <div class="row project">  	
 	      	<div class="col-lg-3 col-md-4 offset-lg-1">
-			      <img class="img-fluid" src="img/about-bg.jpg" alt="">
+			      <img class="img-fluid" src="{{ url_for('static', filename='img/about-bg.jpg')}}" alt="">
 	      	</div>
 	        <div class="col-lg-7 col-md-8">
 	      		<h2 class="section-heading title">Segundo proyecto</h2>   
@@ -33,7 +33,7 @@
 	      <!-- Proyecto -->
 	      <div class="row project">  	
 	      	<div class="col-lg-3 col-md-4 offset-lg-1">
-			      <img class="img-fluid" src="img/home-bg.jpg" alt="">
+			      <img class="img-fluid" src="{{ url_for('static', filename='img/home-bg.jpg')}}" alt="">
 	      	</div>
 	        <div class="col-lg-7 col-md-8">
 	      		<h2 class="section-heading title">Primer proyecto</h2>   
@@ -43,49 +43,4 @@
 	      </div>
 		  </div>
 
-	    <!-- Pié de página -->
-	    <footer>
-	    	<hr>
-	      <div class="container">
-	        <div class="row">
-	          <div class="col-lg-8 col-md-10 mx-auto">
-	            <ul class="list-inline text-center">
-	              <li class="list-inline-item">
-	                <a href="#">
-	                  <span class="fa-stack fa-lg">
-	                    <i class="fa fa-circle fa-stack-2x"></i>
-	                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-	                  </span>
-	                </a>
-	              </li>
-	              <li class="list-inline-item">
-	                <a href="#">
-	                  <span class="fa-stack fa-lg">
-	                    <i class="fa fa-circle fa-stack-2x"></i>
-	                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-	                  </span>
-	                </a>
-	              </li>
-	              <li class="list-inline-item">
-	                <a href="#">
-	                  <span class="fa-stack fa-lg">
-	                    <i class="fa fa-circle fa-stack-2x"></i>
-	                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-	                  </span>
-	                </a>
-	              </li>
-	            </ul>
-            <p class="copyright text-muted">Copyright &copy; 2018 · Juan Pérez (Ingeniero Industrial) </p>
-	          </div>
-	        </div>
-	      </div>
-	    </footer>
-
-	    <!-- Bootstrap y Javascripts -->
-	    <script src="vendor/jquery/jquery.min.js"></script>
-	    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	    <script src="js/clean-blog.min.js"></script>
-
-	  </body>
-
-	</html>
+{% endblock %}
