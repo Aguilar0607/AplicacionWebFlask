@@ -41,11 +41,11 @@ def login():
 def register():
     return render_template('auth/register.html')
 
-@app.route('/welcome')
-def welcome():
-    email = request.args.get('mail')
-    password = request.args.get('password')
-    access = { 'email': email, 'password': password }
+@app.route('/welcome', methods=['GET', 'POST'])
+def welcome(): 
+    email = request.form['mail']
+    password = request.form['password']
+    access = { 'email': email}
 
     return render_template('admin/index.html', user_access=access)
 
