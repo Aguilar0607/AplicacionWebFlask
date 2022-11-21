@@ -1,6 +1,8 @@
 from flask import Flask, redirect, render_template, request, url_for
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, EmailField
+from wtforms import (StringField, PasswordField, SubmitField, 
+                    EmailField, IntegerField, RadioField, 
+                    SelectField, TextAreaField)
 from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__)
@@ -44,6 +46,16 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Ingresar')
 
+class RegisterForm(FlaskForm):
+    name = StringField('Nombre')
+    apellidos = StringField('Apellidos')
+    email = EmailField('Correo')
+    password = PasswordField('Contraseña')
+    phone = IntegerField('Telefono')
+    is_married = RadioField('Estado Civil', choices=[('True', 'Casado'), ('False', 'Soltero')])
+    gender = SelectField('Genero', choices=[('male', 'Masculino'), ('female', 'Femenino'), ('other', 'Otro')])
+    submit = SubmitField('Registrar')
+
 ########## Rutas Login ##########
 
 @app.route('/auth/login', methods=['GET', 'POST'])
@@ -58,15 +70,15 @@ def login():
 
     return render_template('auth/login.html', form=form)
 
+
+
 @app.route('/auth/register')
 def register():
-    return render_template('auth/register.html')
+    form = RegisterForm()
 
-@app.route('/welcome', methods=['GET', 'POST'])
-def welcome(form): 
-    
-    return redirect(url_for('login'))
-
+        
+    return render_template('auth/register.html', form=form) 
+ 
 @app.errorhandler(404)
 def page_error_not_found(e):
     return render_template('error/404.html'), 404
