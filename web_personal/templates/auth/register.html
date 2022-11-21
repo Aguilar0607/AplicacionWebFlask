@@ -36,9 +36,8 @@
         <hr>
         {{ form.gender.label }}
         <div class="input-group mb-3">
-            {{ form.gender(class="custom-select") }}
+            {{ form.gender }}
         </div>
-
         {{ form.submit(class="btn btn-primary") }}
         <a type="submit" class="btn btn-secondary" href="{{ url_for('login')}}">Login</a>
 
