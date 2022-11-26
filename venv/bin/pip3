@@ -1,4 +1,4 @@
-#!/home/blaze/Python/WebPersonalFlask/venv/bin/python
+#!/home/blaze/Python/AplicacionWebFlask/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
